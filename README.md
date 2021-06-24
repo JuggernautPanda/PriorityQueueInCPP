@@ -15,6 +15,8 @@ Output:
 3, Access is granted.
 2, Access is granted.
 
+![alt text](https://raw.githubusercontent.com/JuggernautPanda/PriorityQueueInCPP/main/Screenshot%20from%202021-06-24%2016-14-24.png)
+
 Edge case:
 
 Same priority 
