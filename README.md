@@ -34,8 +34,8 @@ Compile: g++ -Wall -c "%f"
 Link: g++ -Wall -o "%e" "%f" 
 Execute: "./%e" \n
 Refer the attached screenshot. 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Use case relating to STM32 :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+**Use case relating to STM32 :**
 
 Priority queues are used in FreeRTOS pre emptive mode.
 
@@ -45,7 +45,7 @@ They can create priority inversion and priority inheritance.
 
 Let us try to understand this by considering 3 tasks - one with high priority, one with medium and the other with the least priority.
 
-============================================================================================================
+=====================================================================================
 ```
 SemaphoreHandle_t SimpleMutex;
 SemaphoreHandle_t BinSemaphore;
@@ -114,10 +114,10 @@ void LPT_Task (void *argument)
 	}
 }
 ```
-===================================================================================================================
+=========================================================================================
 
 
-Inside the main function, let us create 3 threads in FreeRTOS
+**Inside the main function, let us create 3 threads in FreeRTOS**
 ```
 int main()
 {
@@ -147,12 +147,12 @@ SimpleMutex = xSemaphoreCreateMutex();
   
   }
  ``` 
- =================================================================================================
+ ======================================================================
   
 The MPT can preempt the LPT, and therefore it delays the execution of the HPT also.
 
 HPT even being the Highest priority Task, have to wait for the MPT to finish. This scenario is termed as PRIORITY INVERSION
 
-References:
+**References:**
 
 1 ) FreeRTOS PRIORITY INVERSION article - https://controllerstech.com/freertos-tutorial-7-using-mutex/
