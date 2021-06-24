@@ -45,7 +45,7 @@ They can create priority inversion and priority inheritance.
 
 Let us try to understand this by considering 3 tasks - one with high priority, one with medium and the other with the least priority.
 
-===================================================================================================================
+============================================================================================================
 
 SemaphoreHandle_t SimpleMutex;
 SemaphoreHandle_t BinSemaphore;
