@@ -147,7 +147,7 @@ SimpleMutex = xSemaphoreCreateMutex();
   
   }
   
-  =========================================================================================================
+  =================================================================================================
   
 The MPT can preempt the LPT, and therefore it delays the execution of the HPT also.
 
