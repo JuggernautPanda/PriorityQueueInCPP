@@ -30,11 +30,12 @@ How to use the code:
 
 Clone the directory
 Compile for g++ 
-Compile: g++ -Wall -c "%f" 
-Link: g++ -Wall -o "%e" "%f" 
-Execute: "./%e" \n
+- Compile: g++ -Wall -c "%f" 
+- Link: g++ -Wall -o "%e" "%f" 
+- Execute: "./%e" \n
+
 Refer the attached screenshot. 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 **Use case relating to STM32 :**
 
 Priority queues are used in FreeRTOS pre emptive mode.
@@ -45,7 +46,7 @@ They can create priority inversion and priority inheritance.
 
 Let us try to understand this by considering 3 tasks - one with high priority, one with medium and the other with the least priority.
 
-=====================================================================================
+==========================================================================
 ```
 SemaphoreHandle_t SimpleMutex;
 SemaphoreHandle_t BinSemaphore;
