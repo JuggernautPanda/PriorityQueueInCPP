@@ -37,6 +37,8 @@ Compile for g++
 Refer the attached screenshot. 
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
 **Use case relating to STM32 :**
 
 Priority queues are used in FreeRTOS pre emptive mode.
