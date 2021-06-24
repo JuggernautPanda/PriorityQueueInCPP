@@ -49,7 +49,41 @@ They can create priority inversion and priority inheritance.
 
 Let us try to understand this by considering 3 tasks - one with high priority, one with medium and the other with the least priority.
 
-==========================================================================
+
+**Inside the main function, let us create 3 threads in FreeRTOS**
+```
+int main()
+{
+
+SimpleMutex = xSemaphoreCreateMutex();
+
+  if (SimpleMutex != NULL)
+  {
+	  HAL_UART_Transmit(&huart2, "Mutex Created\n\n", 15, 1000);
+  }
+
+  BinSemaphore = xSemaphoreCreateBinary();
+  if (BinSemaphore != NULL)
+  {
+	  HAL_UART_Transmit(&huart2, "Semaphore Created\n\n", 19, 1000);
+  }
+
+  xSemaphoreGive(BinSemaphore);
+
+  /// create tasks
+
+  xTaskCreate(HPT_Task, "HPT", 128, NULL, 3, &HPT_Handler);
+  xTaskCreate(MPT_Task, "MPT", 128, NULL, 2, &MPT_Handler);
+  xTaskCreate(LPT_Task, "LPT", 128, NULL, 1, &LPT_Handler);
+
+  vTaskStartScheduler();
+  
+  }
+ ``` 
+ ======================================================================
+  
+  
+  ==========================================================================
 ```
 SemaphoreHandle_t SimpleMutex;
 SemaphoreHandle_t BinSemaphore;
@@ -121,38 +155,7 @@ void LPT_Task (void *argument)
 =========================================================================================
 
 
-**Inside the main function, let us create 3 threads in FreeRTOS**
-```
-int main()
-{
 
-SimpleMutex = xSemaphoreCreateMutex();
-
-  if (SimpleMutex != NULL)
-  {
-	  HAL_UART_Transmit(&huart2, "Mutex Created\n\n", 15, 1000);
-  }
-
-  BinSemaphore = xSemaphoreCreateBinary();
-  if (BinSemaphore != NULL)
-  {
-	  HAL_UART_Transmit(&huart2, "Semaphore Created\n\n", 19, 1000);
-  }
-
-  xSemaphoreGive(BinSemaphore);
-
-  /// create tasks
-
-  xTaskCreate(HPT_Task, "HPT", 128, NULL, 3, &HPT_Handler);
-  xTaskCreate(MPT_Task, "MPT", 128, NULL, 2, &MPT_Handler);
-  xTaskCreate(LPT_Task, "LPT", 128, NULL, 1, &LPT_Handler);
-
-  vTaskStartScheduler();
-  
-  }
- ``` 
- ======================================================================
-  
 The MPT can preempt the LPT, and therefore it delays the execution of the HPT also.
 
 HPT even being the Highest priority Task, have to wait for the MPT to finish. This scenario is termed as PRIORITY INVERSION
