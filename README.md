@@ -17,7 +17,7 @@ Output:
 
 ![alt text](https://raw.githubusercontent.com/JuggernautPanda/PriorityQueueInCPP/main/Screenshot%20from%202021-06-24%2016-14-24.png)
 
-Edge case:
+**Edge case:**
 
 Same priority 
 
@@ -26,7 +26,7 @@ How the edge case was handled:
 Based on the value  - Accept or Decline
 precedence is given to values of Accept.
 
-How to use the code:
+**How to use the code:**
 
 Clone the directory
 Compile for g++ 
@@ -35,6 +35,7 @@ Compile for g++
 - Execute: "./%e" \n
 
 Refer the attached screenshot. 
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 **Use case relating to STM32 :**
 
