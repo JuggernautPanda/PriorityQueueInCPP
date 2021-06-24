@@ -34,7 +34,7 @@ Compile: g++ -Wall -c "%f"
 Link: g++ -Wall -o "%e" "%f" 
 Execute: "./%e" \n
 Refer the attached screenshot. 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Use case relating to STM32 :
 
 Priority queues are used in FreeRTOS pre emptive mode.
