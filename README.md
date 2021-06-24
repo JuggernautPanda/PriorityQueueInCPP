@@ -46,7 +46,7 @@ They can create priority inversion and priority inheritance.
 Let us try to understand this by considering 3 tasks - one with high priority, one with medium and the other with the least priority.
 
 ============================================================================================================
-
+```
 SemaphoreHandle_t SimpleMutex;
 SemaphoreHandle_t BinSemaphore;
 
@@ -113,12 +113,12 @@ void LPT_Task (void *argument)
 		vTaskDelay(1000);
 	}
 }
-
+```
 ===================================================================================================================
 
 
 Inside the main function, let us create 3 threads in FreeRTOS
-
+```
 int main()
 {
 
@@ -146,8 +146,8 @@ SimpleMutex = xSemaphoreCreateMutex();
   vTaskStartScheduler();
   
   }
-  
-  =================================================================================================
+ ``` 
+ =================================================================================================
   
 The MPT can preempt the LPT, and therefore it delays the execution of the HPT also.
 
