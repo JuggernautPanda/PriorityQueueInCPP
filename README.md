@@ -30,7 +30,7 @@ How to use the code:
 
 Clone the directory
 Compile for g++ 
-Compile: g++ -Wall -c "%f" \n
-Link: g++ -Wall -o "%e" "%f" \n
+Compile: g++ -Wall -c "%f" 
+Link: g++ -Wall -o "%e" "%f" 
 Execute: "./%e" \n
-Refer the attached screenshot. \n
+Refer the attached screenshot. 
