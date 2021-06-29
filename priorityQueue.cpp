@@ -81,6 +81,45 @@ class Priority_Q {
 		// Return position of the element
 		return ind;
 	}
+	
+	int getlowpriority(void)
+	{
+		int lowpriority = INT_MAX;
+		int ind = -1;
+
+		// Check for the element with maximum priority
+		for (int i = 0; i <= lastIndex; i++) {
+
+			// Handling edge case of threads with equal priorities : Based on Accept / Decline.
+			// precedence is given to values of Accept.
+			/*if (maxpriority == priorityQ[i].priority && ind > -1 && priorityQ[ind].value > priorityQ[i].value)
+			{
+				maxpriority = priorityQ[i].priority;
+				ind = i;
+			}
+			else if (maxpriority > priorityQ[i].priority) 
+			{
+				maxpriority = priorityQ[i].priority;
+				ind = i;
+			}*/
+			//cout << priorityQ[i].priority;
+			//cout << "\n"<< endl;	
+			if (lowpriority == priorityQ[i].priority && ind > -1 && priorityQ[ind].value > priorityQ[i].value)
+			{
+				lowpriority = priorityQ[i].priority;
+				ind = i;
+			}
+			else if (lowpriority > priorityQ[i].priority) 
+			{
+				lowpriority = priorityQ[i].priority;
+				ind = i;
+			}
+			
+		}
+
+		// Return position of the element
+		return ind;
+	}
 
 	// Function to remove the element with
 	// the highest priority
@@ -88,8 +127,8 @@ class Priority_Q {
 	{
 		// Find the position of the element
 		// with highest priority
-		int ind = getmaxpriority();
-
+		//int ind = getmaxpriority();
+		int ind = getlowpriority();
 		// Shift the element one lastIndex before
 		// from the position of the element
 		// with highest queueiortity is found
@@ -105,11 +144,11 @@ class Priority_Q {
 	void loadInPut(void)
 	{
 		//You can hard code a few input sets in your code.
-		insertToQueue(2,"Accepted");
+		insertToQueue(-1,"Acepted");
 		//insertToQueue(2,"Denied");
-		insertToQueue(4,"Denied");
-		insertToQueue(4,"Accepted"); // creating an edge case of having the same priority
-		insertToQueue(3,"Accepted");
+		//insertToQueue(4,"Denied");
+		insertToQueue(50,"Accepted"); // creating an edge case of having the same priority
+		insertToQueue(40,"Accepted");
 	}
 
 	void outFunc1(int ind)
@@ -146,20 +185,26 @@ int main(int argc, char **argv)
 	
 	
 	// Stores the top element at the moment
-	int ind = p.getmaxpriority();
-	
+	//int ind = p.getmaxpriority();
+	int ind = p.getlowpriority();
+	//cout << priorityQ[ind].priority;
+	//cout << "Initial priority value\n";
 	while(li>=0) // Loop until you navigate through the entire queue
 	{
 		if((priorityQ[ind].value.compare("Accepted")) == 0)
 		{
 			p.outFunc1(ind);
 		}
-		else
+		else if((priorityQ[ind].value.compare("Denied")) == 0)
 		{
 			p.outFunc2(ind);
 		}
+		else
+		{
+			cout << "Illegal queue\n" <<endl; 
+		}
 		p.deleteFromQueue();
-		ind = p.getmaxpriority();
+		ind = p.getlowpriority();
 		li--;
 	}
 	return 0;
